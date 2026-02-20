@@ -1,0 +1,8 @@
+google-adk[extensions]
+fastapi
+uvicorn[standard]
+python-dotenv
+httpx
+python-nmap
+dnspython
+python-whois
