@@ -45,14 +45,33 @@ class ChatResponse(BaseModel):
     agent_name: str
 
 
+BANNER = """
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║        ██████╗██╗   ██╗██████╗ ███████╗██████╗              ║
+║       ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗             ║
+║       ██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝             ║
+║       ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗             ║
+║       ╚██████╗   ██║   ██████╔╝███████╗██║  ██║             ║
+║        ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝             ║
+║                                                              ║
+║          Multi-Agent Cybersecurity System v1.0.0            ║
+║                  Powered by </Qu@ntum>                      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+"""
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("CyberGuard Multi-Agent System starting...")
-    print(f"Agents loaded: {root_agent.name}")
+    print(BANNER)
+    print(f"  Coordinator : {root_agent.name}")
     for sub in root_agent.sub_agents:
-        print(f"  - {sub.name}: {sub.description[:60]}...")
+        print(f"  Agent       : {sub.name}")
+    print(f"\n  API docs    : http://localhost:8080/docs")
+    print(f"  Status      : http://localhost:8080/\n")
     yield
-    print("CyberGuard shutting down...")
+    print("\n  CyberGuard shutting down... | </Qu@ntum>\n")
 
 
 app = FastAPI(
@@ -76,6 +95,7 @@ async def root():
     return {
         "service": "CyberGuard",
         "version": "1.0.0",
+        "powered_by": "</Qu@ntum>",
         "agents": [root_agent.name] + [a.name for a in root_agent.sub_agents],
         "docs": "/docs",
     }

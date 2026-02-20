@@ -1,4 +1,5 @@
 # CyberGuard — Multi-Agent Cybersecurity System
+<div align="right"><sub>by <strong>&lt;/Qu@ntum&gt;</strong></sub></div>
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
 ![Google ADK](https://img.shields.io/badge/Google%20ADK-latest-orange?logo=google)
@@ -275,3 +276,9 @@ Google_Agent_Dev.md             # Tutorial completo de Google ADK
 ## Licencia
 
 MIT © [QuantumEdu](https://github.com/QuantumEdu)
+
+---
+
+<div align="center">
+  <sub>Powered by <strong>&lt;/Qu@ntum&gt;</strong></sub>
+</div>
